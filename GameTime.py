@@ -11,7 +11,7 @@ class GameTime:
     def update(self):
         if self.running:
             if self.counter == 0:
-                display = '0:00:00'
+                display = '00:00:00'
             else:
                 tt = datetime.utcfromtimestamp(self.counter)
                 string = tt.strftime('%T')  # %H:%M:%S
@@ -30,4 +30,4 @@ class GameTime:
 
     def reset(self):
         self.counter = 0
-        self.label_time['text'] = '0:00:00'
+        self.label_time['text'] = '00:00:00'
