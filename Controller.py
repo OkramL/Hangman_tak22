@@ -59,12 +59,13 @@ class Controller:
             self.view.btn_send['state'] = 'disabled'
             self.view.char_input['state'] = 'disabled'
             player_name = simpledialog.askstring('Game over', 'What is the player\'s name?', parent=self.view)
+            # print(player_name)
             self.model.set_player_name(player_name, self.gametime.counter)
             self.view.change_image(len(self.model.image_files) - 1)
 
     def click_btn_leaderboard(self):
         if path.exists(self.model.leaderboard_file) and path.isfile(self.model.leaderboard_file):
-            popup_window = self.view.create_popup_window()
+            popup_window = self.view.create_popup_window()  # Frame
             data = self.model.read_leaderboard_file_contents()
             self.view.generate_leaderboard(popup_window, data)
         else:

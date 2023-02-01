@@ -30,8 +30,8 @@ class Model:
         for x in range(len(self.new_word)):
             self.user_word.append('_')
 
-        print(self.new_word)  # Test Autojuht
-        print(self.user_word)  # Test ['_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_']
+        # print(self.new_word)  # Test Autojuht
+        # print(self.user_word)  # Test ['_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_']
 
     def get_random_word(self):
         connection = sqlite3.connect(self.database_name)   # Create connection to database
@@ -70,7 +70,7 @@ class Model:
     def set_player_name(self, name, seconds):
         line = []
         now = datetime.now().strftime('%Y-%m-%d %T')  # %H:%M:%S
-        if name.strip():
+        if name is not None: # name.strip():
             self.player_name = name.strip()
 
         line.append(now)  # Time
